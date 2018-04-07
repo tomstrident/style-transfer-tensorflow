@@ -9,11 +9,8 @@ An implementation of [Image Style Transfer Using Convolutional Neural Networks](
 
 A demo file `style_transfer_demo.py` is provided.
 
-## Sample Images
-Settings:
-* `alpha=1.0`
-* `beta =1.0`
-* `num_iter=1000`
+## Reference Images
+Settings: `alpha=1.0, beta=1.0, num_iter=1000`
 <p align="center">
 <img src="Images/Tuebingen_Neckarfront.jpg" height="192px">
 <img src="Images/vangogh_starry_night.jpg" height="192px">
@@ -21,6 +18,24 @@ Settings:
 
 <p align="center">
 <img src="Output/sample.png" height="192px">
+</p>
+
+## Example Images
+You can find the source images in `/content-images/` and `/style-images/`.
+<p align="center">
+<img src="example-images/hans4.png" height="192px">
+<img src="example-images/hans5.png" height="192px">
+<img src="example-images/hans6.png" height="192px">
+</p>
+<p align="center">
+<img src="example-images/hans7.png" height="192px">
+<img src="example-images/hans8.png" height="192px">
+<img src="example-images/hans9.png" height="192px">
+</p>
+<p align="center">
+<img src="example-images/hans10.png" height="192px">
+<img src="example-images/hans11.png" height="192px">
+<img src="example-images/hans12.png" height="192px">
 </p>
 
 Tested on Win10 and Ubuntu 16.04
