@@ -36,7 +36,7 @@ content_image = load_image(CONTENT_IMAGE_PATH, img_size)
 style_image = load_image(STYLE_IMAGE_PATH, img_size)
 input_image = content_image.copy()
 
-style_transfer = st.StyleTransferModule(content_image, style_image, input_image, num_iters = 1000)
+style_transfer = st.StyleTransferModule(content_image, style_image, input_image, num_iters = 10)
 final_image = style_transfer.run()
 
 imageio.imwrite('Output/final.png', final_image)

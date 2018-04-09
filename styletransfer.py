@@ -17,7 +17,7 @@ class StyleTransferModule:
 
     self.alpha = alpha
     self.beta = beta
-    self.num_iters = num_iters
+    self.options = {'maxiter': num_iters}
 
     self.num_layers = 36
     self.vgg_data = self.load_network_data(model_path)
@@ -136,27 +136,24 @@ class StyleTransferModule:
       # total loss
       L_total = self.alpha*L_content + self.beta*L_style
     
-      global it
-      it = 0
-      
-      def callback(t_loss, c_loss, s_loss):
-        global it
-        print('iteration: %4d' % it, 
-              'total: %12g, content: %12g, style: %12g' % (t_loss, c_loss, s_loss))
-        it += 1
+      def callback(L_t, L_c, L_s, it=[0]):
+        print('Iteration: %4d' % it[0], 
+              'Total: %12g, Content: %12g, Style: %12g' % (L_t, L_c, L_s))
+        it[0] += 1
+
+      optimizer = tf.contrib.opt.ScipyOptimizerInterface(L_total, 
+                                                         method='L-BFGS-B', 
+                                                         options=self.options)
       
       sess.run(tf.global_variables_initializer())
       
-      optimizer = tf.contrib.opt.ScipyOptimizerInterface(L_total, 
-                                                         method='L-BFGS-B', 
-                                                         options={'maxiter': self.num_iters})
       optimizer.minimize(sess, 
                          feed_dict={p:self.content_image, a:self.style_image}, 
                          fetches=[L_total, L_content, L_style], 
                          loss_callback=callback)
       
-      final_image = sess.run(x)
-    return self.postp_image(final_image)
+      out_img = sess.run(x)
+    return self.postp_image(out_img)
       
     
 

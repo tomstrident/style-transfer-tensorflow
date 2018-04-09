@@ -23,7 +23,7 @@ Settings: `alpha=1.0, beta=1.0, num_iter=1000`
 ## Example Images
 You can find the source images in `/content-images/` and `/style-images/`.
 <p align="center">
-<img src="example-images/hans4.png" height="192px">
+<img src="content-images/hans.jpg" height="192px">
 <img src="example-images/hans5.png" height="192px">
 <img src="example-images/hans6.png" height="192px">
 </p>
