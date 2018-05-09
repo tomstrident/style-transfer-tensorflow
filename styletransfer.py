@@ -96,6 +96,8 @@ class StyleTransferModule:
     
   def run(self):
     
+    tf.reset_default_graph()
+    
     with tf.Session(config=tf.ConfigProto(allow_soft_placement=True)) as sess:
       
       x = tf.Variable(self.input_image, trainable=True, dtype=tf.float32)
